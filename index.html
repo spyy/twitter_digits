@@ -20,7 +20,7 @@
     <!-- Custom styles for this template -->
     <link href="./twitter_digits_files/signin.css" rel="stylesheet">
     
-	<script id="digits-sdk" src="https://cdn.digits.com/1/sdk.js" async></script>
+	  <script id="digits-sdk" src="https://cdn.digits.com/1/sdk.js" async></script>
   </head>
 
   <body>
@@ -28,12 +28,12 @@
     <div class="container">
 
       <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
         <label for="authorization" class="sr-only">X-Verify-Credentials-Authorization</label>
         <input type="text" id="authorization" class="form-control" placeholder="X-Verify-Credentials-Authorization">
         <label for="provider" class="sr-only">X-Auth-Service-Provider</label>
         <input type="text" id="provider" class="form-control" placeholder="X-Auth-Service-Provider">        
-		<button class="btn btn-lg btn-primary btn-block" type="button" onclick="onLoginButtonClick()">Twitter digits</button>
+		    <h2 class="form-signin-heading">Please sign in</h2>
+		    <button class="btn btn-lg btn-primary btn-block" type="button" onclick="onLoginButtonClick()">Twitter digits</button>
       </form>
 	  
 
@@ -63,6 +63,10 @@
 		  var oAuthHeaders = loginResponse.oauth_echo_headers;		  
 		  document.getElementById("authorization").value = oAuthHeaders['X-Verify-Credentials-Authorization'];
 		  document.getElementById("provider").value = oAuthHeaders['X-Auth-Service-Provider'];		  
+		}
+		
+		function onLoginFailure(loginResponse){
+		  window.alert(loginResponse);
 		}
 	</script>
 	
